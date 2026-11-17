@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AptEase — Smart Apartment Management SaaS Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .portal-container {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .portal-hero {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .portal-hero h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--tx);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .portal-hero p {
+      color: var(--mu);
+      font-size: 16px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+    .role-select-card {
+      background: var(--card);
+      border: 1px solid var(--ln);
+      border-radius: 16px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      position: relative;
+    }
+    .role-select-card:hover {
+      border-color: var(--p);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .role-select-card.highlight {
+      border: 2px solid var(--p);
+      background: linear-gradient(180deg, #FFFFFF, #FAF8FF);
+    }
+    .role-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+    }
+    .role-select-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .role-select-card .role-meta {
+      font-size: 13px;
+      color: var(--p);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .role-select-card p {
+      color: var(--mu);
+      font-size: 13px;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+    .saas-metrics-bar {
+      background: #252238;
+      color: #fff;
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      align-items: center;
+    }
+    .saas-metrics-bar .m-item b {
+      display: block;
+      font-size: 26px;
+      font-weight: 800;
+      color: #A78BFA;
+    }
+    .saas-metrics-bar .m-item span {
+      font-size: 12px;
+      color: #D3CEE8;
+    }
+  </style>
+</head>
+<body>
+  <div class="portal-container">
+    <!-- Header -->
+    <div class="portal-hero">
+      <div class="logo" style="width:48px; height:48px; font-size:24px; margin:0 auto 16px; border-radius:14px;">A</div>
+      <h1>AptEase</h1>
+      <p>Smart Apartment Management & B2B SaaS Recurring Revenue Platform</p>
+    </div>
+
+    <!-- Live Dynamic SaaS Metrics Teaser -->
+    <div class="saas-metrics-bar">
+      <div class="m-item">
+        <span style="text-transform:uppercase; font-size:11px; letter-spacing:0.8px;">Dynamic Platform MRR</span>
+        <b id="portal-mrr">₹15,494</b>
+        <span>Calculated from active societies</span>
+      </div>
+      <div class="m-item">
+        <span style="text-transform:uppercase; font-size:11px; letter-spacing:0.8px;">Dynamic Platform ARR</span>
+        <b id="portal-arr">₹1,85,928</b>
+        <span>MRR × 12 annualized</span>
+      </div>
+      <div class="m-item">
+        <span style="text-transform:uppercase; font-size:11px; letter-spacing:0.8px;">Subscribed Societies</span>
+        <b id="portal-active">6 Active</b>
+        <span>B2B recurring subscribers</span>
+      </div>
+      <div style="text-align:right;">
+        <a href="superadmin.html" class="btn sm" style="background:#7654D6; color:#fff; border:none;">
+          <i data-lucide="bar-chart-2"></i> Launch SaaS Console
+        </a>
+      </div>
+    </div>
+
+    <!-- Guided Workflow Tour Quick Launch Banner -->
+    <div style="background:#ECFDF5; border:1px solid #A7F3D0; border-radius:12px; padding:18px 24px; margin-bottom:28px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div style="display:flex; align-items:center; gap:14px;">
+        <div style="width:42px; height:42px; border-radius:10px; background:#10B981; color:#fff; display:grid; place-items:center;">
+          <i data-lucide="play-circle"></i>
+        </div>
+        <div>
+          <strong style="color:#065F46; font-size:15px;">Interactive 10-Step Core Workflow Demo</strong>
+          <p style="color:#047857; font-size:13px; margin-top:2px;">
+            Full end-to-end verification: Resident submits leakage complaint → Admin updates to In Progress → Super Admin onboards society → MRR & ARR auto-recalculate.
+          </p>
+        </div>
+      </div>
+      <button class="btn success" id="btn-start-tour">
+        <i data-lucide="play"></i> Start Guided Demo Tour
+      </button>
+    </div>
+
+    <!-- Role Selection Cards -->
+    <h3 style="margin-bottom:16px; font-size:18px;">Select Application Interface to Test:</h3>
+    <div class="role-grid">
+      <!-- Role 1: Resident -->
+      <div class="role-select-card" onclick="selectRole('resident', 'resident.html')">
+        <div class="role-icon-box" style="background:#EEF2FF; color:#4F46E5;">
+          <i data-lucide="home"></i>
+        </div>
+        <h3>Resident Panel</h3>
+        <div class="role-meta">Rahul Sharma · Flat A-302</div>
+        <p>Log in as a resident to submit water leakage complaints, track resolution lifecycle, register expected visitors, and view society circulars.</p>
+        <button class="btn ghost sm" style="margin-top:auto; width:100%;">
+          Launch Resident Portal <i data-lucide="arrow-right"></i>
+        </button>
+      </div>
+
+      <!-- Role 2: Society Admin -->
+      <div class="role-select-card" onclick="selectRole('admin', 'admin.html')">
+        <div class="role-icon-box" style="background:#FAF8FF; color:#7654D6;">
+          <i data-lucide="shield-check"></i>
+        </div>
+        <h3>Society Admin Panel</h3>
+        <div class="role-meta">Priya Menon · Greenview Residency</div>
+        <p>Operate apartment operations: triage complaints, update status to "In Progress", manage resident directory, and upgrade subscription from Basic to Premium.</p>
+        <button class="btn ghost sm" style="margin-top:auto; width:100%;">
+          Launch Society Admin <i data-lucide="arrow-right"></i>
+        </button>
+      </div>
+
+      <!-- Role 3: AptEase Super Admin -->
+      <div class="role-select-card highlight" onclick="selectRole('superadmin', 'superadmin.html')">
+        <div class="role-icon-box" style="background:#252238; color:#A78BFA;">
+          <i data-lucide="layers"></i>
+        </div>
+        <h3>AptEase Super Admin Console</h3>
+        <div class="role-meta" style="color:var(--p);">B2B SaaS Business & Revenue HQ</div>
+        <p>The core business cockpit: monitor dynamic MRR/ARR, view revenue trend charts, register societies, assign plans, and inspect simulated payment records.</p>
+        <button class="btn sm" style="margin-top:auto; width:100%;">
+          Launch SaaS Console <i data-lucide="arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Footer Controls -->
+    <div class="row between" style="padding-top:20px; border-top:1px solid var(--ln);">
+      <button class="btn danger sm" id="btn-reset-demo">
+        <i data-lucide="rotate-ccw"></i> Reset Demo Data & Seed State
+      </button>
+      <div class="mu" style="font-size:12px;">
+        AptEase SaaS Prototype · Pure HTML5, CSS3, Vanilla JS & localStorage
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.441.0/dist/umd/lucide.min.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/tour.js"></script>
+  <script>
+    DB.seed();
+    lucide.createIcons();
+
+    // Render Dynamic SaaS Teaser Metrics
+    const rev = DB.calcRevenue();
+    document.getElementById('portal-mrr').textContent = '₹' + rev.mrr.toLocaleString('en-IN');
+    document.getElementById('portal-arr').textContent = '₹' + rev.arr.toLocaleString('en-IN');
+    document.getElementById('portal-active').textContent = `${rev.activeCount} Active`;
+
+    function selectRole(role, targetUrl) {
+      localStorage.setItem('ae_session', role);
+      window.location.href = targetUrl;
+    }
+
+    document.getElementById('btn-start-tour').onclick = () => {
+      localStorage.setItem('ae_session', 'resident');
+      Tour.setStep(1);
+      window.location.href = 'resident.html';
+    };
+
+    document.getElementById('btn-reset-demo').onclick = () => {
+      if (confirm('Reset demo data and restore initial seed values?')) {
+        DB.reset();
+        alert('Demo data restored to initial state.');
+        window.location.reload();
+      }
+    };
+  </script>
+</body>
+</html>
